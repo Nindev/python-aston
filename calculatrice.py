@@ -23,15 +23,15 @@ firstNum = input("Type the first number...");
 secondNum = input("Type the second number...");
 
 if (operation == 1 ):
-    print(firstNum, "+", secondNum, "=", add(firstNum, secondNum))
+    print(firstNum,"+",secondNum,"=", add(firstNum, secondNum))
 
 elif (operation == 2):
-    print(firstNum, "-", secondNum, "=", sub(firstNum, secondNum))
+    print(firstNum,"-",secondNum,"=", sub(firstNum, secondNum))
 
 elif (operation == 3):
-    print(firstNum, "*", secondNum, "=", mult(firstNum, secondNum))
+    print(firstNum,"*",secondNum,"=", mult(firstNum, secondNum))
 
 elif (operation == 4):
-    print(firstNum, "/", secondNum, "=", div(firstNum, secondNum))
+    print(firstNum,"/",secondNum,"=", div(firstNum, secondNum))
 else:
    print("Invalid input")
