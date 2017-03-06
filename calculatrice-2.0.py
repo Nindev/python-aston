@@ -1,3 +1,11 @@
-from math import *
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-sum(1 + 2)
+from tkinter import *
+
+fenetre = Tk()
+
+label = Label(fenetre, text="Hello World")
+label.pack()
+
+fenetre.mainloop()
