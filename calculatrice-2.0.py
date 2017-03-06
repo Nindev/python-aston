@@ -1,12 +1,3 @@
-# define functions
-def add(a, b):
-    return a + b;
+import math from *
 
-def sub(a, b):
-    return a - b;
-
-def mult(a, b):
-    return a * b;
-
-def div(a, b):
-    return a / b;
+sum(1 + 2)
