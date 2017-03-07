@@ -2,29 +2,26 @@
     Simple socket server
 '''
 
-import socket
+import socket, sys, subprocess
 
-HOST = 'localhost'   # Symbolic name, meaning all available interfaces
-PORT = 1717 # Arbitrary non-privileged port
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-print 'Socket created'
+def Connect():
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.bind(('', 1234))
+    sock.listen(5)
 
-sock.bind(('', PORT))
-sock.listen(5)
-print 'Socket is listenning on port '.format(PORT)
-
-cn, addr = sock.accept()
-print 'Connection at: ', addr
+    print 'Socket is listenning on port 1234'
+    cn, addr = sock.accept()
+    print 'Connection at: ', addr
 
 
-while true:
-    command = raw_input("Enter 'quit' to exit.")
+    while True:
+        command = raw_input("Enter 'quit' to exit\n>")
 
-    if command == 'quit':
-    print 'Closing connection'
-    cn.send('quitter')
-    cn.close()
-    break
+        if command == 'quit':
+            print 'Closing connection'
+            cn.send('quitter')
+            cn.close()
+            break
 
 def Main ():
     Connect()
