@@ -1,33 +1,29 @@
 '''
-    Simple socket server using threads
+    Simple socket server
 '''
 
 import socket
-import sys
 
-HOST = ''   # Symbolic name, meaning all available interfaces
-PORT = 8888 # Arbitrary non-privileged port
+HOST = 'localhost'   # Symbolic name, meaning all available interfaces
+PORT = 1717 # Arbitrary non-privileged port
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print 'Socket created'
 
-#Bind socket to local host and port
-try:
-    s.bind((HOST, PORT))
-except socket.error as msg:
-    print 'Bind failed. Error Code : ' + str(msg[0]) + ' Message ' + msg[1]
-    sys.exit()
+socket.bind((HOST, PORT))
+socket.listen(5)
+print 'Socket is listenning on port {}'.format(PORT))
 
-print 'Socket bind complete'
+clt, infos = socket.accept()
 
-#Start listening on socket
-s.listen(10)
-print 'Socket now listening'
+msg_received = b""
+while msg_received != b"end":
+    msg_received = clt.recv(1717)
+    # L'instruction ci-dessous peut lever une exception si le message
+    # Réceptionné comporte des accents
+    print(msg.decode())
+    clt.send(b"5/5")
 
-#now keep talking with the client
-while 1:
-    #wait to accept a connection - blocking call
-    conn, addr = s.accept()
-    print 'Connected with ' + addr[0] + ':' + str(addr[1])
-
-s.close()
+print 'Closing connection'
+clt.close()
+socket.close()
