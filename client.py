@@ -6,7 +6,7 @@ import socket, sys, subprocess
 
 def Connect():
 
-    HOST = 'server'   # Symbolic name, meaning all available interfaces
+    HOST = '127.0.0.1'   # Symbolic name, meaning all available interfaces
     PORT = 1234 # Arbitrary non-privileged port
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((HOST, PORT))
@@ -16,11 +16,11 @@ def Connect():
         command = sock.recv(1024)
 
         if 'quit' in command:
-            print 'Closing connection'
+            print 'Closing'
             sock.close()
             break
 
-def Main ():
+def Main():
 
     Connect()
 
