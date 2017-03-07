@@ -6,24 +6,27 @@ import socket
 
 HOST = 'localhost'   # Symbolic name, meaning all available interfaces
 PORT = 1717 # Arbitrary non-privileged port
-
-socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print 'Socket created'
 
-socket.bind((HOST, PORT))
-socket.listen(5)
-print 'Socket is listenning on port {}'.format(PORT))
+sock.bind(('', PORT))
+sock.listen(5)
+print 'Socket is listenning on port '.format(PORT)
 
-clt, infos = socket.accept()
+cn, addr = sock.accept()
+print 'Connection at: ', addr
 
-msg_received = b""
-while msg_received != b"end":
-    msg_received = clt.recv(1717)
-    # L'instruction ci-dessous peut lever une exception si le message
-    # Réceptionné comporte des accents
-    print(msg.decode())
-    clt.send(b"5/5")
 
-print 'Closing connection'
-clt.close()
-socket.close()
+while true:
+    command = raw_input("Enter 'quit' to exit.")
+
+    if command == 'quit':
+    print 'Closing connection'
+    cn.send('quitter')
+    cn.close()
+    break
+
+def Main ():
+    Connect()
+
+Main()
